@@ -1,0 +1,45 @@
+int red_pin = 5;
+int blue_pin = 6;
+int green_pin = 3;
+#define slow_it 9
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(red_pin,OUTPUT);
+  pinMode(blue_pin,OUTPUT);
+  pinMode(green_pin,OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+fade_colors();
+
+}
+
+int r, g, b;
+
+void fade_colors(){       //function for rainbow pattern 
+  for (r = 0; r < 256; r++){      //starts at red and fades to blueish voilet
+   analogWrite(red_pin, r);    //the pin number is stored in RED(5)
+   delay(5);      //uses variable, slow_it, to make a delay
+   }
+  for (b = 255; b > 0; b-- ) {
+    analogWrite(blue_pin, b);
+    delay(5);
+    }
+  for (g = 0; g < 256; g++){
+    analogWrite(green_pin, g);
+    delay(5);
+    }
+  for (r = 255; r > 0; r--){
+    analogWrite(red_pin, r);
+    delay(5);     
+    }
+   for (b = 0; b < 256; b++) {
+     analogWrite(blue_pin, b);
+     delay(5);
+    }
+   for(g = 255; g > 0; g--){
+     analogWrite(green_pin, g);
+     delay(5);    
+    }
